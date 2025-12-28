@@ -1,7 +1,8 @@
+import Navigation from '@/components/navigation/Navigation'
 import type { Metadata } from 'next'
 import { Roboto_Flex, Open_Sans, Montserrat } from 'next/font/google'
+import ThemeProvider from '@/components/theme/ThemeProvider'
 import './globals.css'
-import { ThemeProvider } from '@/components/theme-provider'
 
 const roboto = Roboto_Flex({
   variable: '--font-roboto',
@@ -29,16 +30,17 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning>
       <body
-        className={`${roboto.variable} ${openSans.variable} ${montserrat.variable}`}
-      >
+        className={`${roboto.variable} ${openSans.variable} ${montserrat.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
-          disableTransitionOnChange
-        >
+          disableTransitionOnChange>
+          <Navigation />
           {children}
         </ThemeProvider>
       </body>
