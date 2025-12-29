@@ -9,26 +9,31 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 import eslintConfigPrettier from 'eslint-config-prettier'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(['dist', '.next', 'node_modules', 'coverage', 'out']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
       js.configs.recommended,
       tseslint.configs.recommended,
       reactHooks.configs.flat.recommended,
-      eslintConfigPrettier,
-      jestDom.configs.recommended
+      eslintConfigPrettier
     ],
-    parserOptions: {
-      ecmaVersion: 2021,
-      sourceType: 'module',
-      ecmaFeatures: {
-        jsx: true
-      }
+    plugins: {
+      'jest-dom': jestDom
+    },
+    rules: {
+      ...jestDom.configs['flat/recommended'].rules
     },
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser
+      globals: globals.browser,
+      parserOptions: {
+        ecmaVersion: 2021,
+        sourceType: 'module',
+        ecmaFeatures: {
+          jsx: true
+        }
+      }
     }
   }
 ])

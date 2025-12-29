@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import HeadingOne from 'components/typography/HeadingOne'
+import { HeadingOne } from 'components/typography/heading-one'
 
 describe('HeadingOne', () => {
   it('renders children correctly', () => {

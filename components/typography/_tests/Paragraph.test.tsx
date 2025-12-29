@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import Paragraph from 'components/typography/Paragraph'
+import { Paragraph } from 'components/typography/paragraph'
 
 describe('Paragraph', () => {
   it('renders children correctly', () => {

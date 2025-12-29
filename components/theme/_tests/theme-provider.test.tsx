@@ -1,5 +1,5 @@
-import { render, screen, waitFor } from '@testing-library/react'
-import ThemeProvider from '@/components/theme/ThemeProvider'
+import { render, waitFor } from '@testing-library/react'
+import { ThemeProvider } from '@/components/theme/theme-provider'
 import { useTheme } from 'next-themes'
 
 describe('ThemeProvider', () => {

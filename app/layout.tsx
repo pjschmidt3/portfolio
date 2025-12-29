@@ -1,21 +1,13 @@
-import Navigation from '@/components/navigation/Navigation'
+// import { Navigation } from '@/components/navigation/navigation'
+import { Navigation } from '@/components/navigation/navigation'
 import type { Metadata } from 'next'
-import { Roboto_Flex, Open_Sans, Montserrat } from 'next/font/google'
-import ThemeProvider from '@/components/theme/ThemeProvider'
+import { Inter } from 'next/font/google'
+import '@piducancore/fonts-andale-mono'
+import { ThemeProvider } from '@/components/theme/theme-provider'
 import './globals.css'
 
-const roboto = Roboto_Flex({
-  variable: '--font-roboto',
-  subsets: ['latin']
-})
-
-const openSans = Open_Sans({
-  variable: '--font-open-sans',
-  subsets: ['latin']
-})
-
-const montserrat = Montserrat({
-  variable: '--font-montserrat',
+const inter = Inter({
+  variable: '--font-inter',
   subsets: ['latin']
 })
 
@@ -33,15 +25,16 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning>
-      <body
-        className={`${roboto.variable} ${openSans.variable} ${montserrat.variable}`}>
+      <body className={`${inter.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange>
-          <Navigation />
-          {children}
+          <header className="sticky top-0 h-12 z-50 w-full bg-primary/95 shadow-sm backdrop-blur-sm px-2 space-x-2">
+            <Navigation />
+          </header>
+          <main className="flex w-full">{children}</main>
         </ThemeProvider>
       </body>
     </html>

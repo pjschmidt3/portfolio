@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react'
-import Navigation from 'components/navigation/Navigation'
+import { render } from '@testing-library/react'
+import { Navigation } from 'components/navigation/navigation'
 
 describe('Navigation', () => {
   it('renders a nav element', () => {
