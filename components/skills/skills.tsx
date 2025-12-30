@@ -100,7 +100,8 @@ const Skills = () => {
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-100px' }}>
+      viewport={{ once: true, margin: '-100px' }}
+      style={{ contentVisibility: 'auto' }}>
       <motion.div variants={itemVariants}>
         <Heading
           level={2}

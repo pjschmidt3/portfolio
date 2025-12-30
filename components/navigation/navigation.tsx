@@ -31,7 +31,7 @@ export const Navigation = () => {
   }
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm py-4 px-6">
+    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 py-4 px-6">
       <div className="flex items-center justify-between w-full">
         <NavigationMenu>
           <NavigationMenuList
