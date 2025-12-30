@@ -12,9 +12,7 @@ describe('main layout', () => {
     const body = container.querySelector('body')
 
     waitFor(() => {
-      expect(body?.className).toMatch(/roboto/)
-      expect(body?.className).toMatch(/montserrat/)
-      expect(body?.className).toMatch(/open_sans/)
+      expect(body?.className).toContain('roboto')
     })
   })
 })

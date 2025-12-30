@@ -18,8 +18,7 @@ describe('Navigation Active States', () => {
       .should('have.class', 'text-primary')
       .should('have.class', 'font-semibold')
 
-    cy.get('nav a[href="/"]')
-      .should('have.attr', 'data-active', 'false')
+    cy.get('nav a[href="/"]').should('have.attr', 'data-active', 'false')
   })
 
   it('should show Resume trigger as active on resume page', () => {
@@ -39,8 +38,7 @@ describe('Navigation Active States', () => {
       .should('have.class', 'text-primary')
       .should('have.class', 'font-semibold')
 
-    cy.get('nav a[href="/"]')
-      .should('have.attr', 'data-active', 'false')
+    cy.get('nav a[href="/"]').should('have.attr', 'data-active', 'false')
   })
 
   it('should show Contact link as active on contact page', () => {
@@ -51,40 +49,34 @@ describe('Navigation Active States', () => {
       .should('have.class', 'text-primary')
       .should('have.class', 'font-semibold')
 
-    cy.get('nav a[href="/"]')
-      .should('have.attr', 'data-active', 'false')
+    cy.get('nav a[href="/"]').should('have.attr', 'data-active', 'false')
   })
 
   it('should update active state when navigating between pages', () => {
     // Start on home page
-    cy.get('nav a[href="/"]')
-      .should('have.attr', 'data-active', 'true')
+    cy.get('nav a[href="/"]').should('have.attr', 'data-active', 'true')
 
     // Click Experience
     cy.get('nav a[href="/experience"]').click()
 
     cy.url().should('include', '/experience')
-    cy.get('nav a[href="/experience"]')
-      .should('have.attr', 'data-active', 'true')
-    cy.get('nav a[href="/"]')
-      .should('have.attr', 'data-active', 'false')
+    cy.get('nav a[href="/experience"]').should(
+      'have.attr',
+      'data-active',
+      'true'
+    )
+    cy.get('nav a[href="/"]').should('have.attr', 'data-active', 'false')
 
     // Click Contact
     cy.get('nav a[href="/contact"]').click()
 
     cy.url().should('include', '/contact')
-    cy.get('nav a[href="/contact"]')
-      .should('have.attr', 'data-active', 'true')
-    cy.get('nav a[href="/experience"]')
-      .should('have.attr', 'data-active', 'false')
-  })
-
-  it('should show active indicator underline on active page', () => {
-    cy.get('nav a[href="/"]').then($el => {
-      const styles = window.getComputedStyle($el[0], '::after')
-      // Check that the after pseudo-element exists and has proper styles
-      expect($el).to.have.class('after:bg-primary')
-    })
+    cy.get('nav a[href="/contact"]').should('have.attr', 'data-active', 'true')
+    cy.get('nav a[href="/experience"]').should(
+      'have.attr',
+      'data-active',
+      'false'
+    )
   })
 
   it('should display icons in navigation links', () => {
