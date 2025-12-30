@@ -38,7 +38,7 @@ export const Navigation = () => {
           <NavigationMenuList
             className="gap-2"
             role="menubar">
-            <NavigationMenuItem>
+            <NavigationMenuItem role="menuitem">
               <Link
                 href="/"
                 data-active={isActive('/')}
@@ -55,7 +55,7 @@ export const Navigation = () => {
                 Home
               </Link>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            <NavigationMenuItem role="menuitem">
               <Link
                 href="/experience"
                 data-active={isActive('/experience')}
@@ -72,7 +72,7 @@ export const Navigation = () => {
                 Experience
               </Link>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            <NavigationMenuItem role="menuitem">
               <Link
                 href="/projects"
                 data-active={isActive('/projects')}
@@ -89,7 +89,7 @@ export const Navigation = () => {
                 Projects
               </Link>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            <NavigationMenuItem role="menuitem">
               <NavigationMenuTrigger
                 data-active={isActive('/resume')}
                 className={cn(
@@ -137,7 +137,7 @@ export const Navigation = () => {
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            <NavigationMenuItem role="menuitem">
               <Link
                 href="/contact"
                 data-active={isActive('/contact')}
