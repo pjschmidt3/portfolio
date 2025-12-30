@@ -9,7 +9,7 @@ export interface HeadingProps {
 
 export function Heading({ level, className, children }: HeadingProps) {
   const HeadingElement = `h${level}` as keyof JSX.IntrinsicElements
-  const cssClasses = ['scroll-m-20', 'text-primary-foreground', 'font-inter']
+  const cssClasses = ['scroll-m-20', 'text-primary', 'font-roboto']
   switch (level) {
     case 1:
       cssClasses.push('text-4xl', 'font-bold')

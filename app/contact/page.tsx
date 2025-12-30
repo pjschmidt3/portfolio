@@ -4,9 +4,11 @@ import { PageHeading } from '@/components/typography/page-heading'
 
 export default function Page() {
   return (
-    <PageContainer>
-      <PageHeading>Contact Me</PageHeading>
-      <ContactForm />
+    <PageContainer className="flex flex-col items-center">
+      <div className="w-full max-w-2xl mx-auto">
+        <PageHeading className="mb-8 text-center">Contact Me</PageHeading>
+        <ContactForm />
+      </div>
     </PageContainer>
   )
 }

@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button'
 import { useScreenSize } from '@/hooks/useScreenSize'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Download } from 'lucide-react'
 import { useState } from 'react'
 import { pdfjs, Document, Page } from 'react-pdf'
 
@@ -25,30 +25,53 @@ export function PdfViewer() {
     setPageNumber(pageNumber + 1)
   }
 
+  // Calculate responsive width - ensure it's large enough
+  const pdfWidth = Math.max(width * 0.9, 600)
+
   return (
-    <div>
-      <div className="flex w-full justify-between mb-2">
-        <div className="flex-1 text-right">
+    <div className="w-full mx-auto px-4">
+      <div className="flex w-full flex-col md:flex-row items-center justify-between gap-4 mb-6 max-w-[1200px] mx-auto">
+        <a
+          href="/Phillip_Schmidt_Senior_React_Developer.pdf"
+          download="Phillip_Schmidt_Senior_React_Developer.pdf"
+          className="order-3 md:order-1"
+        >
+          <Button
+            size="lg"
+            variant="default"
+          >
+            <Download className="mr-2 h-5 w-5" />
+            Download
+          </Button>
+        </a>
+
+        <div className="flex items-center gap-4 order-1 md:order-2">
           <Button
             disabled={pageNumber === 1}
-            onClick={handlePrevPageClicked}>
-            <ChevronLeft />
+            onClick={handlePrevPageClicked}
+            size="lg"
+            variant="outline"
+          >
+            <ChevronLeft className="h-5 w-5" />
           </Button>
-        </div>
-        <div className="text-center mx-5 leading-2rem">
-          Page {pageNumber} of {numPages}
-        </div>
-        <div className="flex-1 text-left">
+          <div className="text-center font-medium text-lg whitespace-nowrap px-4">
+            Page {pageNumber} of {numPages}
+          </div>
           <Button
             disabled={pageNumber === numPages}
-            onClick={handleNextPageClicked}>
-            <ChevronRight />
+            onClick={handleNextPageClicked}
+            size="lg"
+            variant="outline"
+          >
+            <ChevronRight className="h-5 w-5" />
           </Button>
         </div>
+
+        <div className="order-2 md:order-3 w-[140px]"></div>
       </div>
 
       <Document
-        className="mx-auto"
+        className="mx-auto shadow-lg"
         file="/Phillip_Schmidt_Senior_React_Developer.pdf"
         onLoadSuccess={onDocumentLoadSuccess}
         renderMode="canvas">
@@ -56,7 +79,7 @@ export function PdfViewer() {
           pageNumber={pageNumber}
           renderTextLayer={false}
           renderAnnotationLayer={false}
-          width={Math.max(width * 0.9, 390)}
+          width={pdfWidth}
         />
       </Document>
     </div>

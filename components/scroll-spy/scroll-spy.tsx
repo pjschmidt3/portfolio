@@ -50,7 +50,7 @@ export function ScrollSpy() {
 
   return (
     <nav>
-      <NavigationMenu viewport={false}>
+      <NavigationMenu>
         <NavigationMenuList className="flex items-start">
           {scrollSpySections.map(({ id, label }) => (
             <NavigationMenuItem key={id}>

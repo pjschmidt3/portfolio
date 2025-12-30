@@ -1,4 +1,6 @@
-import { Heading } from '@/components/typography/heading'
+'use client'
+
+import { Heading } from '@/registry/new-york/ui/heading'
 import {
   Item,
   ItemContent,
@@ -12,6 +14,7 @@ import { cnFrom } from '@/lib/utils'
 import { FaAws, FaDatabase, FaGit, FaNodeJs, FaReact } from 'react-icons/fa6'
 import { RiNextjsFill } from 'react-icons/ri'
 import { SiTailwindcss, SiTypescript } from 'react-icons/si'
+import { motion, type Variants } from 'framer-motion'
 
 enum SkillLevel {
   Beginner = 'Beginner',
@@ -71,42 +74,70 @@ const Skills = () => {
     [SkillLevel.Expert]: 100
   }
 
-  return (
-    <div>
-      <Heading
-        level={2}
-        className="text-center mb-5">
-        Technical Skills
-      </Heading>
-      <ItemGroup className="flex flex-col md:flex-row md:justify-start md:items-center mx-auto md:max-w-2/3 flex-wrap">
-        {skills.map((skill, index) => (
-          <div
-            key={index}
-            className="w-full md:w-1/2 px-2 py-1">
-            <Item
-              className="flex justify-between"
-              variant="outline">
-              <ItemMedia>{skill.icon}</ItemMedia>
-              <ItemContent>
-                <ItemTitle>{skill.title}</ItemTitle>
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08
+      }
+    }
+  }
 
-                <Progress value={skillLevelProgressMap[skill.skillLevel]} />
-              </ItemContent>
-              <ItemDescription
-                className={cnFrom({
-                  'text-green-500': skill.skillLevel === SkillLevel.Expert,
-                  'text-lime-500': skill.skillLevel === SkillLevel.Advanced,
-                  'text-yellow-500':
-                    skill.skillLevel === SkillLevel.Intermediate,
-                  'text-orange-500': skill.skillLevel === SkillLevel.Beginner
-                })}>
-                {skill.skillLevel.toString()}
-              </ItemDescription>
-            </Item>
-          </div>
-        ))}
-      </ItemGroup>
-    </div>
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: 'easeOut' as const
+      }
+    }
+  }
+
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+    >
+      <motion.div variants={itemVariants}>
+        <Heading
+          level={2}
+          className="text-center mb-5">
+          Technical Skills
+        </Heading>
+      </motion.div>
+      <motion.div variants={containerVariants}>
+        <ItemGroup className="mx-auto grid grid-cols-1 gap-4 md:max-w-2/3 md:grid-cols-2">
+          {skills.map((skill, index) => (
+            <motion.div key={index} variants={itemVariants}>
+              <Item
+                className="flex justify-between"
+                variant="outline">
+                <ItemMedia>{skill.icon}</ItemMedia>
+                <ItemContent>
+                  <ItemTitle>{skill.title}</ItemTitle>
+
+                  <Progress value={skillLevelProgressMap[skill.skillLevel]} />
+                </ItemContent>
+                <ItemDescription
+                  className={cnFrom({
+                    'text-green-500': skill.skillLevel === SkillLevel.Expert,
+                    'text-lime-500': skill.skillLevel === SkillLevel.Advanced,
+                    'text-yellow-500':
+                      skill.skillLevel === SkillLevel.Intermediate,
+                    'text-orange-500': skill.skillLevel === SkillLevel.Beginner
+                  })}>
+                  {skill.skillLevel.toString()}
+                </ItemDescription>
+              </Item>
+            </motion.div>
+          ))}
+        </ItemGroup>
+      </motion.div>
+    </motion.div>
   )
 }
 

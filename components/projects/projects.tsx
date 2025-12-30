@@ -1,4 +1,6 @@
-import { Heading } from '@/components/typography/heading'
+'use client'
+
+import { Heading } from '@/registry/new-york/ui/heading'
 import { Button } from '@/components/ui/button'
 import {
   Carousel,
@@ -25,6 +27,9 @@ import * as React from 'react'
 import { cn } from '@/lib/utils'
 import TrueCodersLogoBanner from '@/public/images/truecoders-logo-banner.webp'
 import TrueCodersLogo from '@/public/images/TrueCodersLogo.svg'
+import { FaGithub } from 'react-icons/fa6'
+import { ExternalLink } from 'lucide-react'
+import { motion, type Variants } from 'framer-motion'
 
 export type ProjectItem = {
   title: string
@@ -42,7 +47,7 @@ interface ProjectsProps extends React.HTMLAttributes<HTMLElement> {
   heading?: string
 }
 
-const Projects = ({ className }: ProjectsProps) => {
+export function Projects({ className }: ProjectsProps) {
   const projectItems: ProjectItem[] = [
     {
       title: 'TrueCoders Student Portal',
@@ -80,8 +85,26 @@ const Projects = ({ className }: ProjectsProps) => {
     }
   ]
 
+  const containerVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: 'easeOut' as const
+      }
+    }
+  }
+
   return (
-    <section className={cn('bg-background my-16', className)}>
+    <motion.section
+      className={cn('bg-background my-16', className)}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
+    >
       <Heading level={2}>Projects</Heading>
       <Carousel className="w-full">
         <CarouselContent>
@@ -113,12 +136,28 @@ const Projects = ({ className }: ProjectsProps) => {
                 <ItemActions className="w-full">
                   <ButtonGroup>
                     <Button>
-                      <Link href={project.github}>View on Github</Link>
+                      <Link
+                        href={project.github}
+                        className="inline-flex items-center gap-2">
+                        <FaGithub
+                          className="size-4"
+                          aria-hidden="true"
+                        />
+                        View on Github
+                      </Link>
                     </Button>
                     <ButtonGroupSeparator />
                     {project.demo && (
                       <Button>
-                        <Link href={project.demo}>View Site</Link>
+                        <Link
+                          href={project.demo}
+                          className="inline-flex items-center gap-2">
+                          <ExternalLink
+                            className="size-4"
+                            aria-hidden="true"
+                          />
+                          View Site
+                        </Link>
                       </Button>
                     )}
                   </ButtonGroup>
@@ -130,8 +169,6 @@ const Projects = ({ className }: ProjectsProps) => {
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
-    </section>
+    </motion.section>
   )
 }
-
-export { Projects }

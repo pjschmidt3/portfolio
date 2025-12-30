@@ -1,0 +1,15 @@
+{
+  "name": "hero",
+  "type": "registry:ui",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": ["heading", "paragraph", "social-links"],
+  "files": [
+    {
+      "path": "ui/hero.tsx",
+      "content": "",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

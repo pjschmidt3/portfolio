@@ -13,7 +13,12 @@ export function PageContainer({
   className
 }: PageContainerProps) {
   return (
-    <div className={cn(pageId || '', 'page pt-12 px-12 space-y-12', className)}>
+    <div
+      className={cn(
+        pageId || '',
+        'page pt-8 px-6 md:px-12 space-y-8',
+        className
+      )}>
       {children}
     </div>
   )
