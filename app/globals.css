@@ -1,6 +1,5 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
-@import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -58,8 +57,9 @@ a {
   --sidebar-ring: oklch(0.707 0.022 261.325);
 
   --font-sans: Roboto, sans-serif;
-  --font-serif: Playfair Display, serif;
-  --font-mono: Andale Mono, monospace;
+  --font-roboto: Roboto, sans-serif;
+  --font-mono: Geist Mono, monospace;
+  --font-geist: Geist Mono, monospace;
 
   --radius: 0.625rem;
 
