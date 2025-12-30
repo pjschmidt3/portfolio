@@ -18,7 +18,8 @@ const nextConfig: NextConfig = {
 
   // Experimental features for better performance
   experimental: {
-    optimizePackageImports: ['lucide-react', 'react-icons']
+    optimizePackageImports: ['lucide-react', 'react-icons'],
+    optimizeCss: true // Inline critical CSS for faster LCP
   }
 }
 

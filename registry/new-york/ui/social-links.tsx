@@ -12,7 +12,7 @@ import {
   FaDiscord,
   FaTwitter
 } from 'react-icons/fa6'
-import { motion } from 'motion/react'
+import { motion, Variants } from 'motion/react'
 
 type fontSize =
   | 'xs'
@@ -55,8 +55,22 @@ export function SocialLinks({
   className,
   size = 'lg'
 }: SocialsProps) {
+  const itemVariants: Variants = {
+    hidden: { opacity: 1, y: 0 }, // Start in final position for LCP
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3, // Shorter for perceived speed
+        ease: 'easeOut' as const
+      }
+    }
+  }
   return (
-    <div
+    <motion.div
+      variants={itemVariants}
+      initial="hidden"
+      animate="visible"
       className={cn(
         'flex flex-col md:flex-row justify-center space-x-12',
         className
@@ -133,7 +147,7 @@ export function SocialLinks({
           as={as}
         />
       )}
-    </div>
+    </motion.div>
   )
 }
 
