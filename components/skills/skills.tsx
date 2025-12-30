@@ -131,10 +131,11 @@ const Skills = () => {
                   className={cnFrom({
                     'text-shadow-green-500':
                       skill.skillLevel === SkillLevel.Expert,
-                    'text-lime-500': skill.skillLevel === SkillLevel.Advanced,
-                    'text-yellow-500':
+                    'text-slime-500': skill.skillLevel === SkillLevel.Advanced,
+                    'text-shadow-yellow-500':
                       skill.skillLevel === SkillLevel.Intermediate,
-                    'text-orange-500': skill.skillLevel === SkillLevel.Beginner
+                    'text-shadow-orange-500':
+                      skill.skillLevel === SkillLevel.Beginner
                   })}>
                   {skill.skillLevel.toString()}
                 </ItemDescription>

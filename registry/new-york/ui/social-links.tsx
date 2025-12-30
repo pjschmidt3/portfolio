@@ -63,6 +63,7 @@ export function SocialLinks({
       )}>
       {facebook && (
         <SocialLink
+          aria-label="Facebook Page"
           size={size}
           type="facebook"
           url={facebook}
@@ -71,6 +72,7 @@ export function SocialLinks({
       )}
       {youtube && (
         <SocialLink
+          aria-label="Youtube Account"
           size={size}
           type="youtube"
           url={youtube}
@@ -79,6 +81,7 @@ export function SocialLinks({
       )}
       {instagram && (
         <SocialLink
+          aria-label="Instagram"
           size={size}
           type="instagram"
           url={instagram}
@@ -87,6 +90,7 @@ export function SocialLinks({
       )}
       {github && (
         <SocialLink
+          aria-label="Github"
           size={size}
           type="github"
           url={github}
@@ -95,6 +99,7 @@ export function SocialLinks({
       )}
       {linkedIn && (
         <SocialLink
+          aria-label="LinkedIn"
           size={size}
           type="linkedIn"
           url={linkedIn}
@@ -103,6 +108,7 @@ export function SocialLinks({
       )}
       {twitter && (
         <SocialLink
+          aria-label="Twitter"
           size={size}
           type="twitter"
           url={twitter}
@@ -111,6 +117,7 @@ export function SocialLinks({
       )}
       {x && (
         <SocialLink
+          aria-label="X.com"
           size={size}
           type="x"
           url={x}
@@ -119,6 +126,7 @@ export function SocialLinks({
       )}
       {discord && (
         <SocialLink
+          aria-label="Discord"
           size={size}
           type="discord"
           url={discord}
@@ -169,8 +177,7 @@ export function SocialLink({ type, url, as, size, ...props }: SocialLinkProps) {
       <motion.div
         whileHover={{ scale: 1.15, y: -4 }}
         whileTap={{ scale: 0.95 }}
-        transition={{ duration: 0.2 }}
-      >
+        transition={{ duration: 0.2 }}>
         <Icon
           {...props}
           className={`text-${size}`}
