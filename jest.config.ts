@@ -8,12 +8,11 @@ const createJestConfig = nextJest({
 const config: Config = {
   // coverageProvider: 'v8',
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts']
-  // moduleNameMapper: {
-  //   '@/*': ['<rootDir>/$1'],
-  //   '@/app/*': ['<rootDir>/app/$1'],
-  //   '@/components/*': ['<rootDir>/components/$1']
-  // },
+  setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
+  moduleNameMapper: {
+    '@piducancore/fonts-andale-mono':
+      '<rootDir>/lib/test-utils/mocks/font-mock.ts'
+  }
   // modulePaths: ['<rootDir>'],
   // testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
   // collectCoverageFrom: [

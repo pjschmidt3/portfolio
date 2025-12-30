@@ -80,10 +80,11 @@ const Skills = () => {
       </Heading>
       <ItemGroup className="flex flex-col md:flex-row md:justify-start md:items-center mx-auto md:max-w-2/3 flex-wrap">
         {skills.map((skill, index) => (
-          <div className="w-full md:w-1/2 px-2 py-1">
+          <div
+            key={index}
+            className="w-full md:w-1/2 px-2 py-1">
             <Item
               className="flex justify-between"
-              key={index}
               variant="outline">
               <ItemMedia>{skill.icon}</ItemMedia>
               <ItemContent>

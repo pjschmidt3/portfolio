@@ -1,4 +1,4 @@
-import { HeadingTwo } from '@/components/typography/heading-two'
+import { Heading } from '@/components/typography/heading'
 import { Button } from '@/components/ui/button'
 import {
   Carousel,
@@ -42,7 +42,7 @@ interface ProjectsProps extends React.HTMLAttributes<HTMLElement> {
   heading?: string
 }
 
-const Projects = ({ className, heading }: ProjectsProps) => {
+const Projects = ({ className }: ProjectsProps) => {
   const projectItems: ProjectItem[] = [
     {
       title: 'TrueCoders Student Portal',
@@ -67,8 +67,8 @@ const Projects = ({ className, heading }: ProjectsProps) => {
         'Public marketing/sales website for TrueCoders, built with React and NextJS.',
       image: TrueCodersLogo,
       technologies: [
-        'React',
-        'NextJS',
+        'React.js',
+        'Next.js',
         'TypeScript',
         'TailwindCSS',
         'Stripe',
@@ -82,11 +82,13 @@ const Projects = ({ className, heading }: ProjectsProps) => {
 
   return (
     <section className={cn('bg-background my-16', className)}>
-      <HeadingTwo>{heading}</HeadingTwo>
+      <Heading level={2}>Projects</Heading>
       <Carousel className="w-full">
         <CarouselContent>
           {projectItems.map((project, index) => (
-            <CarouselItem key={index} className="md:basis-1/2">
+            <CarouselItem
+              key={index}
+              className="md:basis-1/2">
               <Item variant="outline">
                 <ItemContent>
                   <ItemTitle>{project.title}</ItemTitle>
@@ -99,6 +101,7 @@ const Projects = ({ className, heading }: ProjectsProps) => {
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, techIndex) => (
                         <span
+                          data-role="tech"
                           key={techIndex}
                           className="inline-flex items-center rounded-md border border-primary/20 bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary">
                           {tech}

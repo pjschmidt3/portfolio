@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -11,11 +11,14 @@ import {
 export function ScrollSpy() {
   const [activeSection, setActiveSection] = useState<string>('')
 
-  const scrollSpySections = [
-    { id: 'about', label: 'About Me' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'projects', label: 'Projects' }
-  ]
+  const scrollSpySections = useMemo(
+    () => [
+      { id: 'about', label: 'About Me' },
+      { id: 'experience', label: 'Experience' },
+      { id: 'projects', label: 'Projects' }
+    ],
+    []
+  )
 
   useEffect(() => {
     const observers = scrollSpySections.map(({ id }) => {

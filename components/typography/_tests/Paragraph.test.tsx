@@ -11,7 +11,7 @@ describe('Paragraph', () => {
   it('applies correct CSS classes', () => {
     render(<Paragraph>Styled paragraph</Paragraph>)
     const paragraph = screen.getByText('Styled paragraph')
-    expect(paragraph).toHaveClass('leading-7', 'text-primary')
+    expect(paragraph).toHaveClass('text-base')
   })
 
   it('renders without children', () => {

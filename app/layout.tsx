@@ -28,12 +28,10 @@ export default function RootLayout({
       <body className={`${inter.variable}`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange>
-          <header className="sticky top-0 h-12 z-50 w-full bg-primary/95 shadow-sm backdrop-blur-sm px-2 space-x-2">
-            <Navigation />
-          </header>
+          <Navigation />
           <main className="flex w-full">{children}</main>
         </ThemeProvider>
       </body>

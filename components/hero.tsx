@@ -1,5 +1,4 @@
-import { HeadingOne } from '@/components/typography/heading-one'
-import { HeadingTwo } from '@/components/typography/heading-two'
+import { Heading } from '@/components/typography/heading'
 import { Paragraph } from '@/components/typography/paragraph'
 import Link from 'next/link'
 import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6'
@@ -7,12 +6,16 @@ import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6'
 const Hero = () => {
   return (
     <div className="text-center flex-col space-y-5">
-      <HeadingOne className="text-4xl md:text-6xl">
+      <Heading
+        level={1}
+        className="text-4xl md:text-6xl">
         Hi, I'm Phillip Schmidt.
-      </HeadingOne>
-      <HeadingTwo className="text-3xl md:text-4xl">
+      </Heading>
+      <Heading
+        level={2}
+        className="text-3xl md:text-4xl">
         Full-stack software engineer. Problem Solver.
-      </HeadingTwo>
+      </Heading>
       <Paragraph className="text-lg md:text-xl mt-8 mb-16">
         I specialize in building modern web apps with React and Node.js (or
         Next.js).
