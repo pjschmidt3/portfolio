@@ -100,8 +100,7 @@ const Skills = () => {
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-    >
+      viewport={{ once: true, margin: '-100px' }}>
       <motion.div variants={itemVariants}>
         <Heading
           level={2}
@@ -112,19 +111,26 @@ const Skills = () => {
       <motion.div variants={containerVariants}>
         <ItemGroup className="mx-auto grid grid-cols-1 gap-4 md:max-w-2/3 md:grid-cols-2">
           {skills.map((skill, index) => (
-            <motion.div key={index} variants={itemVariants}>
+            <motion.div
+              key={index}
+              variants={itemVariants}>
               <Item
+                role="listitem"
                 className="flex justify-between"
                 variant="outline">
                 <ItemMedia>{skill.icon}</ItemMedia>
                 <ItemContent>
                   <ItemTitle>{skill.title}</ItemTitle>
 
-                  <Progress value={skillLevelProgressMap[skill.skillLevel]} />
+                  <Progress
+                    aria-label={`${skill.title} skill level`}
+                    value={skillLevelProgressMap[skill.skillLevel]}
+                  />
                 </ItemContent>
                 <ItemDescription
                   className={cnFrom({
-                    'text-green-500': skill.skillLevel === SkillLevel.Expert,
+                    'text-shadow-green-500':
+                      skill.skillLevel === SkillLevel.Expert,
                     'text-lime-500': skill.skillLevel === SkillLevel.Advanced,
                     'text-yellow-500':
                       skill.skillLevel === SkillLevel.Intermediate,

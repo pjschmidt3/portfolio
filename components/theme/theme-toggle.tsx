@@ -21,6 +21,7 @@ export function ThemeToggle() {
 
   return (
     <Button
+      role="button"
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
