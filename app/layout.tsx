@@ -6,7 +6,12 @@ import '@piducancore/fonts-andale-mono'
 import { ThemeProvider } from '@/components/theme/theme-provider'
 import './globals.css'
 
-const roboto = Roboto({ subsets: ['latin'], variable: '--font-sans' })
+const roboto = Roboto({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+  preload: true
+})
 
 export const metadata: Metadata = {
   title: 'Portfolio | Phillip Schmidt',

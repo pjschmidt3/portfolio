@@ -15,7 +15,8 @@
     "cypress": "cypress open",
     "cypress:headless": "cypress run",
     "e2e": "start-server-and-test dev http://localhost:3000 cypress",
-    "e2e:headless": "start-server-and-test dev http://localhost:3000 cypress:headless"
+    "e2e:headless": "start-server-and-test dev http://localhost:3000 cypress:headless",
+    "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
     "@base-ui/react": "^1.0.0",
@@ -34,7 +35,6 @@
     "cmdk": "^1.1.1",
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.6.0",
-    "framer-motion": "^12.23.26",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.562.0",
     "mini-svg-data-uri": "^1.4.4",
@@ -61,6 +61,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
+    "@next/bundle-analyzer": "^16.1.1",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.1",

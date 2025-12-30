@@ -14,7 +14,7 @@ import { cnFrom } from '@/lib/utils'
 import { FaAws, FaDatabase, FaGit, FaNodeJs, FaReact } from 'react-icons/fa6'
 import { RiNextjsFill } from 'react-icons/ri'
 import { SiTailwindcss, SiTypescript } from 'react-icons/si'
-import { motion, type Variants } from 'framer-motion'
+import { motion, type Variants } from 'motion/react'
 
 enum SkillLevel {
   Beginner = 'Beginner',

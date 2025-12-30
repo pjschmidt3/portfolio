@@ -3,7 +3,7 @@
 import { cn } from '@/lib/utils'
 import { Heading } from '@/registry/new-york/ui/heading'
 import { Paragraph } from '@/registry/new-york/ui/paragraph'
-import type { Variants } from 'framer-motion'
+import type { Variants } from 'motion/react'
 import { StaticImport } from 'next/dist/shared/lib/get-img-props'
 import Image from 'next/image'
 import { isValidElement, ReactNode } from 'react'

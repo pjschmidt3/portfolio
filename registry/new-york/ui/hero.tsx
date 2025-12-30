@@ -5,7 +5,7 @@ import { ReactNode } from 'react'
 import { Heading } from '@/registry/new-york/ui/heading'
 import { Paragraph } from '@/registry/new-york/ui/paragraph'
 import { SocialLinks, SocialsProps } from '@/registry/new-york/ui/social-links'
-import { motion, type Variants } from 'framer-motion'
+import { motion, type Variants } from 'motion/react'
 
 export interface HeroProps {
   title: string | ReactNode

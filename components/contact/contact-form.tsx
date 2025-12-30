@@ -18,8 +18,14 @@ import { sendContactEmail } from '@/server/contact/actions'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { UserIcon, MailIcon, MessageSquareIcon, FileTextIcon, SendIcon } from 'lucide-react'
-import { motion, type Variants } from 'framer-motion'
+import {
+  UserIcon,
+  MailIcon,
+  MessageSquareIcon,
+  FileTextIcon,
+  SendIcon
+} from 'lucide-react'
+import { motion, type Variants } from 'motion/react'
 
 const initialState: ContactFormData = {
   firstName: '',
@@ -80,8 +86,7 @@ const ContactForm = () => {
         className="w-full"
         initial="hidden"
         animate="visible"
-        variants={containerVariants}
-      >
+        variants={containerVariants}>
         <Card className="w-full shadow-lg">
           <CardContent className="space-y-6 pt-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -189,7 +194,10 @@ const ContactForm = () => {
           </CardContent>
           <CardFooter className="flex justify-end">
             <CardAction>
-              <Button type="submit" size="lg" className="gap-2">
+              <Button
+                type="submit"
+                size="lg"
+                className="gap-2">
                 <SendIcon className="size-4" />
                 Send Message
               </Button>

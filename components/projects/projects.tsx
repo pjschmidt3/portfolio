@@ -29,7 +29,7 @@ import TrueCodersLogoBanner from '@/public/images/truecoders-logo-banner.webp'
 import TrueCodersLogo from '@/public/images/TrueCodersLogo.svg'
 import { FaGithub } from 'react-icons/fa6'
 import { ExternalLink } from 'lucide-react'
-import { motion, type Variants } from 'framer-motion'
+import { motion, type Variants } from 'motion/react'
 
 export type ProjectItem = {
   title: string
@@ -102,9 +102,8 @@ export function Projects({ className }: ProjectsProps) {
       className={cn('bg-background my-16', className)}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      variants={containerVariants}
-    >
+      viewport={{ once: true, margin: '-100px' }}
+      variants={containerVariants}>
       <Heading level={2}>Projects</Heading>
       <Carousel className="w-full">
         <CarouselContent>
